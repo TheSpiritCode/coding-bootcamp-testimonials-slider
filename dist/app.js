@@ -9,6 +9,38 @@
 
 (function () {
   console.info('JS loaded');
+  document.addEventListener('DOMContentLoaded', function () {
+    var slides = document.querySelectorAll('.slide');
+    var nextButton = document.querySelector('.control__next');
+    var prevButton = document.querySelector('.control__prev');
+    var lastSlide = slides.length - 1;
+    slides.forEach(function (slide, index) {
+      slide.style.transform = "translateX(".concat(index * 100, "%)");
+    });
+    var currentSlide = 0;
+    nextButton.addEventListener('click', function () {
+      if (lastSlide === currentSlide) {
+        currentSlide = 0;
+      } else {
+        currentSlide++;
+      }
+
+      slides.forEach(function (slide, index) {
+        slide.style.transform = "translateX(".concat(100 * (index - currentSlide), "%)");
+      });
+    });
+    prevButton.addEventListener('click', function () {
+      if (0 === currentSlide) {
+        currentSlide = lastSlide;
+      } else {
+        currentSlide--;
+      }
+
+      slides.forEach(function (slide, index) {
+        slide.style.transform = "translateX(".concat(100 * (index - currentSlide), "%)");
+      });
+    });
+  });
 })();
 
 /***/ }),

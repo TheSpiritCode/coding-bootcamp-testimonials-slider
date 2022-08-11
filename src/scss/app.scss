@@ -3,4 +3,116 @@
 :root {
   font-size: $font-size;
   font-family: $font-family;
+  color: $dark-blue;
+}
+
+body {
+  main {
+    display: grid;
+    place-items: center;
+    background-image: url("../images/pattern-curve.svg");
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 280px;
+
+    .slider {
+      width: 100%;
+      max-width: 375px;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+
+      .slide {
+        width: 100%;
+        //max-width: 800px;
+        height: 350px;
+        position: absolute;
+        transition: all 0.5s;
+        display: grid;
+        justify-items: center;
+
+
+        .slide__image {
+          margin: 0.5rem;
+
+          padding: 1rem 1.2rem;
+
+          background-image: url("../images/pattern-bg.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+
+          img {
+            width: 255px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 0.75rem 2.5rem -1rem $dark-blue;
+          }
+        }
+
+        .slide__quote {
+          margin-left: 1rem;
+          margin-right: 1rem;
+          margin-bottom: 0.5rem;
+
+          padding-top: 0.8rem;
+
+          font-size: 0.55rem;
+          text-align: center;
+          font-weight: 300;
+          line-height: 0.75rem;
+
+          background-image: url("../images/pattern-quotes.svg");
+          background-repeat: no-repeat;
+          background-position: top center;
+          background-size: 60px;
+        }
+
+        .slide__quoted {
+          text-align: center;
+          font-size: 0.5rem;
+
+
+          .quoted__name {
+            font-weight: 600;
+          }
+
+          .quoted__position {
+            color: $grayish-blue;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .slider__controls {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        top: 42%;
+
+        .controls__button {
+          width: 40px;
+          height: 40px;
+          padding: 10px;
+          border: none;
+          cursor: pointer;
+          background-color: white;
+          font-size: 18px;
+
+          &:active {
+            transform: scale(1.1);
+          }
+
+          &.control__prev {
+            border-radius: 50% 0 0 50%;
+          }
+
+          &.control__next {
+            border-radius: 0 50% 50% 0;
+          }
+        }
+      }
+    }
+  }
 }

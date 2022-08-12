@@ -18,7 +18,8 @@
       slide.style.transform = "translateX(".concat(index * 100, "%)");
     });
     var currentSlide = 0;
-    nextButton.addEventListener('click', function () {
+
+    var sliderNext = function sliderNext() {
       if (lastSlide === currentSlide) {
         currentSlide = 0;
       } else {
@@ -28,8 +29,9 @@
       slides.forEach(function (slide, index) {
         slide.style.transform = "translateX(".concat(100 * (index - currentSlide), "%)");
       });
-    });
-    prevButton.addEventListener('click', function () {
+    };
+
+    var sliderPrev = function sliderPrev() {
       if (0 === currentSlide) {
         currentSlide = lastSlide;
       } else {
@@ -39,6 +41,18 @@
       slides.forEach(function (slide, index) {
         slide.style.transform = "translateX(".concat(100 * (index - currentSlide), "%)");
       });
+    };
+
+    nextButton.addEventListener('click', sliderNext);
+    prevButton.addEventListener('click', sliderPrev);
+    document.addEventListener('keydown', function (e) {
+      if (e.code === 'ArrowLeft') {
+        sliderPrev();
+      }
+
+      if (e.code === 'ArrowRight') {
+        sliderNext();
+      }
     });
   });
 })();

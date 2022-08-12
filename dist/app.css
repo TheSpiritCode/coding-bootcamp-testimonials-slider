@@ -5,6 +5,9 @@
   color: hsl(240deg, 38%, 20%);
 }
 
+body {
+  margin: 0;
+}
 body main {
   display: grid;
   place-items: center;
@@ -12,6 +15,7 @@ body main {
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 280px;
+  height: 100vh;
 }
 body main .slider {
   width: 100%;
@@ -19,6 +23,7 @@ body main .slider {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  max-height: 667px;
 }
 body main .slider .slide {
   width: 100%;
@@ -92,4 +97,52 @@ body main .slider .slider__controls .controls__button.control__prev {
 }
 body main .slider .slider__controls .controls__button.control__next {
   border-radius: 0 50% 50% 0;
+}
+@media (min-width: 1439.98px) {
+  body main {
+    background-size: 608px;
+  }
+  body main .slider {
+    max-width: 1440px;
+    display: grid;
+    max-height: 800px;
+  }
+  body main .slider .slide {
+    grid-template-columns: auto 1fr;
+    margin-top: 1rem;
+  }
+  body main .slider .slide .slide__image {
+    grid-column: 3/span 2;
+    grid-row: 1/span 4;
+    padding: 2.2rem 2.6rem;
+    margin-right: 1.8rem;
+  }
+  body main .slider .slide .slide__image img {
+    width: 540px;
+  }
+  body main .slider .slide .slide__quote {
+    grid-column: 2/span 2;
+    grid-row: 2/span 1;
+    font-size: 1rem;
+    margin-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 2rem;
+    line-height: 1.5rem;
+    text-align: left;
+    background-size: 120px;
+    background-position: 15% 0;
+  }
+  body main .slider .slide .slide__quoted {
+    text-align: left;
+    grid-column: 2/span 2;
+    grid-row: 3;
+    justify-self: left;
+    margin-left: 6rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  body main .slider .slider__controls {
+    top: 80%;
+    left: 10%;
+  }
 }

@@ -7,6 +7,8 @@
 }
 
 body {
+  margin: 0;
+
   main {
     display: grid;
     place-items: center;
@@ -14,6 +16,7 @@ body {
     background-position: bottom left;
     background-repeat: no-repeat;
     background-size: 280px;
+    height: 100vh;
 
     .slider {
       width: 100%;
@@ -21,6 +24,8 @@ body {
       height: 100vh;
       position: relative;
       overflow: hidden;
+      max-height: 667px;
+
 
       .slide {
         width: 100%;
@@ -30,6 +35,7 @@ body {
         transition: all 0.5s;
         display: grid;
         justify-items: center;
+
 
 
         .slide__image {
@@ -110,6 +116,63 @@ body {
 
           &.control__next {
             border-radius: 0 50% 50% 0;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 1439.98px) {
+      & {
+        background-size: 608px;
+
+        .slider {
+          max-width: 1440px;
+          display: grid;
+          max-height: 800px;
+
+          .slide {
+            grid-template-columns: auto 1fr;
+            margin-top: 1rem;
+
+            .slide__image {
+              grid-column: 3 / span 2;
+              grid-row: 1 / span 4;
+              padding: 2.2rem 2.6rem;
+              margin-right: 1.8rem;
+
+              img {
+                width: 540px;
+              }
+            }
+
+            .slide__quote {
+              grid-column: 2 / span 2;
+              grid-row: 2 / span 1;
+              font-size: 1rem;
+              margin-left: 6rem;
+              padding-right: 6rem;
+              padding-top: 2rem;
+              line-height: 1.5rem;
+              text-align: left;
+
+              background-size: 120px;
+              background-position: 15% 0;
+            }
+
+            .slide__quoted {
+              text-align: left;
+              grid-column: 2 / span 2;
+              grid-row: 3;
+              justify-self: left;
+              margin-left: 6rem;
+              display: flex;
+              gap: 0.5rem;
+            }
+          }
+
+          .slider__controls {
+            top: 80%;
+            left: 10%;
           }
         }
       }
